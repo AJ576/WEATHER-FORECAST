@@ -1,0 +1,46 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  
+}
+
+.DashBoard
+{
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Card
+{
+  flex: 0 1 calc(25% - 1em);
+  background-color: rgb(9, 204, 238);
+  border:5px black;
+  border-radius: 7px;
+  margin: 10px;
+  padding: 10px;
+}
+
+th,td{
+  width:100%;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: coral;}
+
+.INPUT
+{
+  border-radius:10px;
+}
+
+input{
+  padding:5px;
+  margin:5px;
+  border:5px;
+  height:30px;
+
+}
