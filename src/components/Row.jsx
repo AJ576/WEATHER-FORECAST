@@ -9,7 +9,6 @@ const Row = ({data}) =>
     const [hhumidity,setHhumidity] = useState(100);
     const [date,setDate] = useState("");
     useEffect(()=>{setFdata(data)},[data]);
-    console.log(fdata);
 
     const changeFilter = () =>
     {

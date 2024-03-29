@@ -13,7 +13,6 @@ const Display = () =>
     {
       const fetchData = async () => {
         const response = await axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New York, US?key=${KEY}`);
-        console.log(response);
 
         setData({adress:response.data.address, 
                 sunrise:response.data.currentConditions.sunrise,
