@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 const Row = ({data}) =>
 {   
@@ -26,6 +27,8 @@ const Row = ({data}) =>
     
     return(
         <>
+        
+        
         <div className="INPUT">
             <input type="text" placeholder="Enter date to filter" onChange={(e) => {setDate(e.target.value)}}/>
             <div className="temp">
@@ -36,36 +39,43 @@ const Row = ({data}) =>
                 <input type="text" placeholder="Enter Lower bound for Humidity" onChange={(e) => {setLhumidity(e.target.value)}}/>
                 <input type="text" placeholder="Enter Upper bound for Humidity" onChange={(e) => {setHhumidity(e.target.value)}}/>
             </div>
-            <button onClick={() => {changeFilter()}}>Click me</button>
+            <button onClick={() => {changeFilter()}}>Filter</button>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <td>Date</td>
-                    <td>Temprature</td>
-                    <td>Humidity</td>
-                    <td>Sunrise</td>
-                    <td>Sunset</td>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    fdata.length > 0 ?
-                    fdata.map((item,i) => 
-                    (
-                        <>
-                            <tr key={"item-"+i}>
-                                <td>{item.datetime}</td>
-                                <td>{item.temp}</td>
-                                <td>{item.humidity}</td>
-                                <td>{item.sunrise}</td>
-                                <td>{item.sunset}</td>
-                            </tr>
-                        </>  
-                    )):<tr><td>{'No Data'}</td></tr>
-                }
-            </tbody>
-        </table>
+        <div className="main-stuff">   
+            
+            <table>
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Temprature</td>
+                        <td>Humidity</td>
+                        <td>Sunrise</td>
+                        <td>Sunset</td>
+                        <td>More info</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        fdata.length > 0 ?
+                        fdata.map((item,i) => 
+                        (
+                            <>
+                                <tr key={"item-"+i}>
+                                    <td>{item.datetime}</td>
+                                    <td>{item.temp}</td>
+                                    <td>{item.humidity}</td>
+                                    <td>{item.sunrise}</td>
+                                    <td>{item.sunset}</td>
+                                    <td>{<Link to={`/details/${item.datetime}/${item.description}/${item.windspeed}/${item.visibility}`}>🔗</Link>}</td>
+                                    
+                                </tr>
+                            </>  
+                        )):<tr><td>{'No Data'}</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
         </>
         
     )

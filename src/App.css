@@ -44,3 +44,25 @@ input{
   height:30px;
 
 }
+
+.detail
+{
+  background-color: orange;
+  padding: 10%;
+  border-radius: 20px;
+}
+
+.main-stuff
+{
+  display: flex;
+}
+.forecast
+{
+  flex-grow: 4;
+}
+
+.bar{
+  margin: 10px;
+  justify-content:end;
+  width:800px
+}
